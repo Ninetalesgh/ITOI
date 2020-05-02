@@ -331,8 +331,9 @@ function prepareFrame(gl, programInfo, buffers) {
   gl.depthFunc(gl.LEQUAL);            // Near things obscure far things
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
   gl.enable(gl.BLEND);
-  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+  //gl.disable(gl.DEPTH_TEST);
+  
 //////////////////////////////
 //THIS IS PER MODEL////////////////////
 //////////////////////
