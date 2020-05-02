@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
   <title>Times of Innocence</title>
-<style type="text/css">
-  #glCanvas{ position:fixed; }
 
-</style>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,12 +14,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body onload="main()">
-
+<style type="text/css">
+  #glCanvas{ position:fixed; }
+  div.container-fluid{
+    pointer-events:auto;
+  }
+</style>
 
   <canvas id="glCanvas"></canvas>  
  
 
-<div class="container-fluid bg-dark">
+<div class="container-fluid bg-transparent">
   <div class="row">
     <div class="col-sm-12 text-light text-center">
       <h1>In Zeiten Gro&szlig;er Unschuld</h1>
