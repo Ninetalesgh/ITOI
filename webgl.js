@@ -70,31 +70,49 @@ function createAnimation()
   //tickCallback
 
   return {
-    isActive: false,
+    isActive: true,
     t: 0.0,
     speed: 1.0,
 
   };
 }
 
-var POS_OFFSET = -1.5;
+var ANGLE = 0;
+var DISTANCE = 0.5;
+var FACTOR = 0.1;
+function nextFlowerPadPosition()
+{
+  var angleClamp = Math.PI * 0.5;
+
+  ANGLE = (ANGLE + FACTOR) % angleClamp;
+
+  var x = DISTANCE;
+  var y = DISTANCE;
+DISTANCE += 1.0;
+
+  var angle = ANGLE - 0.5 * angleClamp;
+  var pos = [ x, y, 0.0 ];
+
+ return {
+   angle: -angle,
+   pos: pos,
+ }
+}
 
 function createObject(texture)
 {
-//load image 
-
-  // Set the drawing position to the "identity" point, which is
-  // the center of the scene.
+  const tm = nextFlowerPadPosition();
   const modelViewMatrix = mat4.create();
-
-  // Now move the drawing position a bit to where we want to
-  // start drawing the square.
 
   mat4.translate(modelViewMatrix,     // destination matrix
                   modelViewMatrix,     // matrix to translate
-                  [POS_OFFSET, 0.0, -6.0]);  // amount to translate
+                  tm.pos);  // amount to translate
 
-  POS_OFFSET += 3.0;
+  mat4.rotate(modelViewMatrix,     
+                modelViewMatrix,
+                tm.angle,
+                [ 0, 1, 0 ]); 
+
 
   return {
     mvm: modelViewMatrix,
@@ -333,7 +351,7 @@ function prepareFrame(gl, programInfo, buffers) {
   gl.enable(gl.BLEND);
   gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
   //gl.disable(gl.DEPTH_TEST);
-  
+
 //////////////////////////////
 //THIS IS PER MODEL////////////////////
 //////////////////////
@@ -412,8 +430,12 @@ function renderObject(object)
 
 function updateObject(object, deltaTime)
 {
+  if( !object.animation.isActive )
+  {
+    return;
+  }
 
- mat4.rotate(object.mvm,  // destination matrix
+  mat4.rotate(object.mvm,  // destination matrix
              object.mvm,  // matrix to rotate
              deltaTime *object.animation.speed,   // amount to rotate in radians
             [0, 0.3, 0.707]);       // axis to rotate around
@@ -448,22 +470,37 @@ function main() {
     const texture2 = loadTexture(state.gl, 'assets/debug_uv_01.png'); 
     const obj = createObject(texture);
     const obj2 = createObject(texture2);
-    var objects = [ obj, obj2 ];
+    const obj3 = createObject(texture);
+    const obj4 = createObject(texture2);
+    const obj5 = createObject(texture);
+    const obj6 = createObject(texture2);
+    const obj7 = createObject(texture);
+    const obj8 = createObject(texture2);
+
+    var objects = [ obj, obj2, obj3, obj4, obj5, obj6, obj7, obj8 ];
 
 ////////////////////////
+
+      const camMat = state.app.camera.projectionMatrix;
+
+      mat4.translate(camMat, camMat, [0,-5,-40]);
+      mat4.rotate(camMat,  // destination matrix
+                  camMat,  // matrix to rotate
+                  0.8,   // amount to rotate in radians
+                [1, 0, 0]);       // axis to rotate around
 
     var then = 0;
     function render(now) {
       now *= 0.001;  // convert to seconds
       const deltaTime = now - then;
       then = now;
-  
+
       //animate objects
       objects.forEach((item) => updateObject(item, deltaTime) );
 
       //prepare frame
       prepareFrame(state.gl, state.programInfo, buffers);
-  
+
       //render objects
       objects.forEach(renderObject);
 
