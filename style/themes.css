@@ -1,0 +1,42 @@
+.itoi-dark
+{
+    color: var(--itoi-color-light-0);
+    background-color: var(--itoi-color-dark-0);
+    text-decoration: none !important;
+}
+
+.itoi-light
+{
+    color: var(--itoi-color-dark-0);
+    background-color: var(--itoi-color-light-0);
+    text-decoration: none !important;
+}
+
+.itoi-dark:link
+{
+    color: var(--itoi-color-light-0);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.itoi-light:link
+{
+    color: var(--itoi-color-dark-0);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.itoi-dark:active
+{
+    color: pink;
+}
+
+.itoi-dark:hover
+{
+    color: var(--itoi-color-hover-0);
+}
+
+.itoi-light:hover
+{
+    color: var(--itoi-color-hover-0);
+}

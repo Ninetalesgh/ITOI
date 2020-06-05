@@ -1,0 +1,34 @@
+:root
+{
+    --itoi-serif: "Times New Roman", Times, serif;
+    --itoi-sans-serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Not Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --itoi-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    --itoi-color-light-0: #cbdbe0;
+    --itoi-color-dark-0: #202020;
+    --itoi-color-hover-0: #787878;
+}
+
+p
+{
+    text-align: left;
+}
+
+table, th, td 
+{
+    border: 0px;
+    border-collapse: collapse;
+}
+
+.td-list-bullet
+{
+    text-align: right;
+    vertical-align: top;
+    width: 10%;
+    padding-right: 20px;
+}
+
+.td-list-body
+{
+    text-align: left;
+    width: 90%;
+}
