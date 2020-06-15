@@ -26,7 +26,7 @@ table, th, td
     padding-right: 20px;
 }
 
-.td-list-bullet.small
+.td-list-bullet.itoi-small
 {
     width: 5%;
     padding-right: 10px;
@@ -38,7 +38,7 @@ table, th, td
     width: 90%;
 }
 
-.td-list-body.small
+.td-list-body.itoi-small
 {
     text-align: left;
     width: 95%;
