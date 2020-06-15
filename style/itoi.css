@@ -1,5 +1,4 @@
-:root
-{
+:root{
     --itoi-serif: "Times New Roman", Times, serif;
     --itoi-sans-serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Not Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     --itoi-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
@@ -27,8 +26,20 @@ table, th, td
     padding-right: 20px;
 }
 
+.td-list-bullet.small
+{
+    width: 5%;
+    padding-right: 10px;
+}
+
 .td-list-body
 {
     text-align: left;
     width: 90%;
+}
+
+.td-list-body.small
+{
+    text-align: left;
+    width: 95%;
 }

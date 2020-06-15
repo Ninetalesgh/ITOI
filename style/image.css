@@ -4,7 +4,7 @@ div.art2-embedded
     background: var(--itoi-color-dark-0);
     color: var(--itoi-color-light-0);
     text-align: center;
-    top:40.9%;
+    top: 40.9%;
     left: 14.8%;
     width: 30.6%;
     height: 12.31%;
@@ -14,16 +14,30 @@ div.art2-embedded
 
 div.art2-embedded:hover
 {
-    width: 50%;
-    height: 70%;
-    font-size: 0;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    top: 0%;
+    left: 0%;
+}
+
+div.art2-embedded-inner
+{
+    display: none;
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+}
+
+div.art2-embedded:hover div.art2-embedded-inner
+{
+    display: block;
 }
 
 div.art2-embedded:hover::after
 {
-    content: attr(hover-text);
-    text-align: center;
-    font-size: 16px;
+    display: none;
+    text-align: left;
 }
 
 div.art2-img

@@ -10,5 +10,6 @@ document.write('\
     <link rel="stylesheet" href="style/text.css" />\
     <link rel="stylesheet" href="style/themes.css" />\
     <link rel="stylesheet" href="style/image.css" />\
+    <link rel="stylesheet" href="style/layout.css" />\
     <script src="https://use.fontawesome.com/eae9d3e910.js"></script>\
 ');
